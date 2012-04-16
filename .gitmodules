@@ -1,0 +1,3 @@
+[submodule "resources/midiutil"]
+	path = resources/midiutil
+	url = git://github.com/duggan/midiutil.git
