@@ -1,4 +1,5 @@
 from midiutil.MidiFile import MIDIFile
+from floppy.note import Note
 
 ''' Test the range of the drives and some other stuff '''
 
@@ -22,6 +23,19 @@ pitchmap = {
 time = 0
 duration = 10
 volume = 100 #  Makes no difference to floppy drive
+
+print "Try playing C!"
+drive = 0
+sequence = ['C1', 'C2', 'C3', 'C4']
+for note in sequence:
+    play = Note()
+    n, octave = list(note)
+    TestDrives.addTrackName(drive, time, "Position %d" % drive)
+    channel = drive
+
+    TestDrives.addNote(drive, channel, play.convert(n, octave), time, duration,
+            volume)
+    time += duration
 
 print "Trying the lower pitch boundary..."
 for drive, pitch in pitchmap.iteritems():
